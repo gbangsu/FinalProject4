@@ -17,17 +17,34 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotNull
-    @Size(min = 4)
+
     private String content;
 
-    @NotNull
-    @Min(3)
+
+
     private String posteddate;
 
-    @NotNull
-    @Size (min = 4)
+
     private String sentby;
+
+    private String name;
+    private String realname;
+
+    public String getRealname() {
+        return realname;
+    }
+
+    public void setRealname(String realname) {
+        this.realname = realname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public long getId() {
         return id;

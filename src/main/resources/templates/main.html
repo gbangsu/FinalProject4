@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 <form action="#" th:action="@{/process}"
       th:object="${message}"
-      method="post">
+      method="post" enctype="multipart/form-data">
     <input type="hidden" th:field="*{id}"/>
     Content: <textarea rows="3"  th:field="*{content}"/>
     <span th:if="${#fields.hasErrors('content')}"
@@ -16,12 +18,35 @@
     Sentby:<input type="text" th:field="*{sentby}"/>
     <span th:if="${#fields.hasErrors('sentby')}"
           th:errors="*{sentby}"></span><br />
-
+    <input type="file" name="file" /><br/><br/>
     Posteddate:<input type="text" th:field="*{posteddate}"/>
     <span th:if="${#fields.hasErrors('posteddate')}"
           th:errors="*{posteddate}"></span><br />
+    <br /><br/>
+    <!--<h1>Images</h1>-->
+    <!--<form method="POST" action="/add" th:object="${message}" enctype="multipart/form-data">-->
+        <!--Name:<input type="text" th:field="*{name}" />-->
+        <!--Real Name:<input type="text" th:field="*{realname}" />-->
+      <!---->
+        <input type="submit" value="Submit" />
+    </form>
 
-    <input type="submit" value="Submit" />
-</form>
+
+    <!--<input type="submit" value="Submit" />-->
+<!--</form>-->
 </body>
 </html>
+
+
+
+
+
+
+<!--<br /><br/>-->
+<!--<h1>Spring Boot file upload example</h1>-->
+<!--<form method="POST" action="/add" th:object="${actor}" enctype="multipart/form-data">-->
+    <!--Name:<input type="text" th:field="*{name}" />-->
+    <!--Real Name:<input type="text" th:field="*{realname}" />-->
+    <!--<input type="file" name="file" /><br/><br/>-->
+    <!--<input type="submit" value="Submit" />-->
+<!--</form>-->

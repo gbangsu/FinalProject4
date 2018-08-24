@@ -33,6 +33,12 @@ import javax.validation.Valid;
             return "main";
         }
 
+        @RequestMapping("/index")
+        public String index(){
+            return "index";
+        }
+
+
         @PostMapping("/process")
         public String processForm(@Valid Message message, BindingResult result)
         {
@@ -41,7 +47,11 @@ import javax.validation.Valid;
             }
             messageRepository.save(message);
             return "redirect:/";
+
         }
+
+
+
         @RequestMapping ("/detail/{id}")
         public String showCourse(@PathVariable("id") long id, Model model) {
             model.addAttribute("message", messageRepository.findById(id).get());
@@ -57,6 +67,10 @@ import javax.validation.Valid;
             messageRepository.deleteById(id);
             return "redirect:/";
         }
+
+
+
+
     }
 
 

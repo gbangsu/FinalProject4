@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
+
+<a href="/add">Add an image</a>
+<div th:each="image : ${images}">
+    <div th:if="${image} !=null">
+        <img th:src="${image}"/>
+        <hr />
+    </div>
+    <h3 th:text="${image.name}"></h3>
+    <h4 th:text="${image.realname}"></h4>
+</div>
+
+
+<div class = "container ">
+    <div class="mt-5">
+        <div class="mx-auto" style="width: 200px;">
+            Centered element
+        </div>
+    <div class="jumboton">
 <a href="/add"> Add a course</a><br />
 <table>
     <tr>
@@ -23,5 +42,8 @@
         </td>
     </tr>
 </table>
+    </div>
+    </div>
+</div>
 </body>
 </html>
